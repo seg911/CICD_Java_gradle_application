@@ -1,8 +1,5 @@
 # this is multi stage 
-FROM openjdk:11 as base
-RUN mkdir /home/.sonar
-RUN chmod 777 /home/.sonar
-ENV SONAR_USER_HOME=/home/.sonar 
+FROM openjdk:11 as base 
 WORKDIR /app
 COPY . . 
 RUN chmod +x gradlew
