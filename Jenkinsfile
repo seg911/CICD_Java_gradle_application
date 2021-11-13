@@ -40,6 +40,15 @@ pipeline{
                 }
             }
         }
+        stage('ident misconf using datree in helm charts'){
+            steps{
+                script{
+                    dir('kubernetes/'){
+                        sh 'help datree test myapp/'
+                    }
+                }
+            }
+        }
     }
     post {
 		always {
