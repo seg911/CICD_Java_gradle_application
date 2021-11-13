@@ -33,7 +33,7 @@ pipeline{
                              sh '''
                                docker build -t nexus.sgm:8083/springapp:${VERSION} .
                                docker login -u admin -p $docker_password nexus.sgm:8083 
- ##                              docker push  nexus.sgm:8083/springapp:${VERSION}
+                               docker push  nexus.sgm:8083/springapp:${VERSION}
                                docker rmi nexus.sgm:8083/springapp:${VERSION}
                             '''
                     }
