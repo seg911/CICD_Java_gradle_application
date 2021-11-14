@@ -68,6 +68,9 @@ pipeline{
             }
         } 
         stage ('manual approval'){
+            when {
+            expression { false }
+            }
             steps{
                 script{
                     timeout(1) {
