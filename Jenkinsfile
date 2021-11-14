@@ -96,8 +96,8 @@ pipeline{
         stage('verify my APP deployment')   {
             steps{
                 script{
-                  withCredentials([kubeconfigFile(credentialsId: 'kubernetes-config', variable: 'KUBECONFIG')]) {
-                           sh 'kubectl get nodes'
+                    sleep time: 3, unit: 'MINUTES'
+                    withCredentials([kubeconfigFile(credentialsId: 'kubernetes-config', variable: 'KUBECONFIG')]) {
                            sh 'kubectl run curl --image=curlimages/curl -i --rm --restart=Never -- curl myjavaapp-myapp:8080'
                     }  
                  
